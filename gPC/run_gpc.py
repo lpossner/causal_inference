@@ -11,14 +11,14 @@ if __name__ == '__main__':
 
     # define parameters
     parameters = OrderedDict()
-    parameters["x1"] = pygpc.Beta(pdf_shape=[1, 1], pdf_limits=[1.2, 2])
+    parameters["x1"] = pygpc.Beta(pdf_shape=[1, 1], pdf_limits=[-10, 10])
 
     # load coords
-    coords = np.load("grid_coords.npy")
+    coords = np.load("data/coords.npy")
     # re-generate grid object from grid.coords
     grid = pygpc.LHS(parameters_random=parameters, coords=coords)
     # load results
-    results = np.load("results.npy")
+    results = np.load("data/results.npy")
 
     # define gPC options
     options = OrderedDict()

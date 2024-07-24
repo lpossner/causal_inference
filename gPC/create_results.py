@@ -1,3 +1,4 @@
+import os
 import numpy as np
 
 
@@ -6,11 +7,12 @@ seed = 1
 np.random.seed(seed)
 
 # load coordinates
-coords = np.load("grid_coords.npy")
+coords = np.load("data/coords.npy")
 
 # run simulations with grid.coords
 f = np.poly1d([1, 2, 3, 4])
-results = f(coords)[:, np.newaxis]
+results = f(coords)[:]
 
 # save results
-np.save("results.npy", results)
+os.makedirs("data", exist_ok=True)
+np.save("data/results.npy", results)
